@@ -1,0 +1,79 @@
+AI SMART ROUTE FINDER USING A* SEARCH
+Artificial Intelligence Course Project
+
+1. ABSTRACT
+This project implements an interactive intelligent route-finding system using state-space search. A grid represents a problem space in which each free cell is a possible state, walls represent unavailable states, the green cell is the initial state, and the red cell is the goal state. The system implements BFS, DFS, Greedy Best First Search, A* Search and Hill Climbing. A* is the primary technique because it combines the path cost already travelled with a heuristic estimate of the remaining distance.
+
+2. INTRODUCTION
+Artificial Intelligence studies methods that allow computer systems to solve problems intelligently. Search is a fundamental AI technique. A problem can be formulated as a state-space problem containing an initial state, actions, transition model, goal test and path cost. Route finding is a simple and visual example of this formulation.
+
+3. PROBLEM STATEMENT
+Given a two-dimensional grid containing obstacles, find a route from a specified start state to a goal state. The system should visualize the search process and compare different AI search strategies.
+
+4. OBJECTIVES
+• Represent a route-finding problem as a state space.
+• Implement uninformed search: BFS and DFS.
+• Implement heuristic search: Greedy Best First and A*.
+• Demonstrate local search using Hill Climbing.
+• Visualize explored states and the final route.
+• Compare path length and number of explored nodes.
+
+5. SYLLABUS MAPPING
+Unit 1: Problem spaces, state-space search and problem formulation.
+Unit 2: Generate-and-test/search, hill climbing, depth-first search, best-first search and A* algorithm.
+Course Outcome CO2: Apply appropriate searching techniques.
+Course Outcome CO3: Analyse AI concepts and applications.
+Course Outcome CO5: Apply AI techniques to solve a domain problem.
+
+6. PROBLEM FORMULATION
+State: A grid cell (row, column).
+Initial state: User-defined start cell.
+Actions: Move up, down, left or right.
+Transition: Move to an adjacent non-wall cell.
+Goal test: Current cell equals the destination.
+Path cost: One unit per movement.
+Heuristic: Manhattan distance h(n)=|r-rg|+|c-cg|.
+
+7. ALGORITHMS
+BFS uses a FIFO queue and expands states level by level. With uniform movement cost it finds a shortest path, but may explore many states.
+DFS uses a stack and goes deeply along one branch before backtracking. It does not guarantee the shortest path.
+Greedy Best First Search prioritizes the state with the smallest heuristic h(n). It can be fast but is not guaranteed to find an optimal route.
+A* uses f(n)=g(n)+h(n). With an admissible Manhattan heuristic for four-direction unit-cost movement, it can find an optimal path.
+Hill Climbing repeatedly chooses a neighboring state that appears closer to the goal. It is simple but can get stuck at local minima or blocked regions.
+
+8. SYSTEM DESIGN
+Input → Grid/State-Space Representation → Search Algorithm → Explored States → Goal Test → Path Reconstruction → Visualization/Comparison.
+
+9. IMPLEMENTATION
+The application is written in Python using Tkinter. The grid is drawn as a canvas. Users can create obstacles, change the destination, select a search strategy and run the algorithm. Search results are animated so the explored states and final path are visible.
+
+10. EXPECTED OUTPUT
+The application displays:
+• Green = start
+• Red = goal
+• Black = obstacle
+• Blue = explored states
+• Yellow = final path
+A comparison window reports path length, nodes explored and execution time.
+
+11. ADVANTAGES
+• Directly demonstrates topics from Unit 1 and Unit 2.
+• Easy to understand visually.
+• No external libraries are required.
+• Multiple algorithms can be compared on the same problem.
+• Suitable for live classroom demonstration.
+
+12. LIMITATIONS
+• The environment is a grid rather than a real road network.
+• Movement cost is currently uniform.
+• Hill Climbing is intentionally simple and may fail even when a route exists.
+
+13. FUTURE SCOPE
+• Add real map data and GPS coordinates.
+• Support weighted roads and traffic.
+• Add Dijkstra and bidirectional search.
+• Add animated algorithm metrics and charts.
+• Extend to dynamic obstacles and intelligent agents.
+
+14. CONCLUSION
+The AI Smart Route Finder demonstrates how a real-world route-finding problem can be formulated as a state-space search problem. By comparing BFS, DFS, Greedy Best First, A* and Hill Climbing, the project illustrates the difference between uninformed, heuristic and local search. A* provides an effective balance between path cost and estimated distance and is therefore the main algorithm of the project.
